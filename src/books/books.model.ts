@@ -1,7 +1,7 @@
 import { Table, Model, Column, DataType } from 'sequelize-typescript';
 
 @Table
-export class Product extends Model<Product> {
+export class Book extends Model<Book> {
   @Column({
     type: DataType.STRING(255),
     allowNull: false,
@@ -13,6 +13,12 @@ export class Product extends Model<Product> {
     allowNull: false,
   })
   price: number;
+
+  @Column({
+    type: DataType.DECIMAL(10, 2),
+    allowNull: false,
+  })
+  myRating: number;
 
   @Column({
     type: DataType.STRING(255),

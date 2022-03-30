@@ -1,9 +1,9 @@
 import { AppService } from './app.service';
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize/dist/sequelize.module';
-import { ProductsController } from './products/products.controller';
-import { ProductService } from './products/products.service';
-import { Product } from './products/products.model';
+import { BooksController } from './books/books.controller';
+import { BookService } from './books/books.service';
+import { Book } from './books/books.model';
 @Module({
   imports: [
     SequelizeModule.forRoot({
@@ -12,13 +12,13 @@ import { Product } from './products/products.model';
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'products',
+      database: 'books',
       autoLoadModels: true,
       synchronize: true,
     }),
-    SequelizeModule.forFeature([Product]),
+    SequelizeModule.forFeature([Book]),
   ],
-  controllers: [ProductsController],
-  providers: [AppService, ProductService],
+  controllers: [BooksController],
+  providers: [AppService, BookService],
 })
 export class AppModule {}
